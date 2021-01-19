@@ -14,58 +14,55 @@ namespace API_Agencia.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class ServicioController : ControllerBase
     {
         private AppDbContext context { get; set; }
-        public UsuarioController(AppDbContext appDbContext)
+        public ServicioController(AppDbContext appDbContext)
         {
             this.context = appDbContext;
         }
-        // GET: api/<UsuarioController>
-        //api/Usuario
+        // GET: api/<ServicioController>
         [HttpGet]
-        public List<Usuario> Get()
+        public List<Servicio> Get()
         {
-            List<Usuario> responseUsuarios;
+            List<Servicio> responseServicios;
             try
             {
-                var query = context.Usuarios.Where(x => x.IsEnabled == true);
+                var query = context.Servicios;
                 //review 
-                query = query.Include(x => x.TipoUsuario);
-                query = query.Include(x => x.Acceso);
-                responseUsuarios = query.ToList();
+                query = (DbSet<Servicio>)query.Include(x => x.TipoServicio);
+                responseServicios = query.ToList();
             }
             catch (Exception)
             {
                 return null;
             }
 
-            return responseUsuarios;
-
+            return responseServicios;
         }
 
-        // GET api/<UsuarioController>/5
+        // GET api/<ServicioController>/5
         [EnableCors("AnotherPolicy")]
         [HttpGet("{id}")]
-        public Usuario Get(int id)
+        public Servicio Get(int id)
         {
-            Usuario responseUsuario;
-            var usuario = context.Usuarios.Where(x => x.ID == id);
-            usuario = usuario.Include(x => x.TipoUsuario);
-            usuario = usuario.Include(x => x.Acceso);
-             responseUsuario = usuario.FirstOrDefault();
+            Servicio responseServicio;
+            var query = context.Servicios.Where(x => x.ID == id);
+            query = query.Include(x => x.TipoServicio);
 
-            return responseUsuario;
+            responseServicio = query.FirstOrDefault();
+
+            return responseServicio;
         }
 
-        // POST api/<UsuarioController>
+        // POST api/<ServicioController>
         [EnableCors("AnotherPolicy")]
         [HttpPost]
-        public ActionResult Post([FromBody] Usuario usuario)
+        public ActionResult Post([FromBody] Servicio servicio)
         {
             try
             {
-                context.Usuarios.Add(usuario);
+                context.Servicios.Add(servicio);
                 context.SaveChanges();
                 return Ok();
             }
@@ -73,17 +70,16 @@ namespace API_Agencia.Controllers
             {
                 return BadRequest();
             }
-           
         }
 
-        // PUT api/<UsuarioController>/5
+        // PUT api/<ServicioController>/5
         [EnableCors("AnotherPolicy")]
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Usuario usuario)
+        public ActionResult Put(int id, [FromBody] Servicio servicio)
         {
-            if (usuario.ID == id)
+            if (servicio.ID == id)
             {
-                context.Entry(usuario).State = EntityState.Modified;
+                context.Entry(servicio).State = EntityState.Modified;
                 context.SaveChanges();
                 return Ok();
             }
@@ -93,16 +89,15 @@ namespace API_Agencia.Controllers
             }
         }
 
-        // DELETE api/<UsuarioController>/5
+        // DELETE api/<ServicioController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            var usuario = context.Usuarios.Where(x => x.ID == id).FirstOrDefault();
-            if (usuario != null)
+            var servicio = context.Servicios.Where(x => x.ID == id).FirstOrDefault();
+            if (servicio != null)
             {
-                //here wanna make logic delete
-                Action<Usuario> action = x => x.IsEnabled = false;
-                action(usuario);
+                //here wanna make physical delete
+                context.Servicios.Remove(servicio);
                 context.SaveChanges();
                 return Ok();
             }

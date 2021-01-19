@@ -5501,23 +5501,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Omen\\.nuget\\packages\\": {},
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Omen\\source\\repos\\API_Agencia\\API_Agencia\\API_Agencia.csproj",
+      "projectUniqueName": "D:\\Users\\Omen\\source\\repos\\API_Agencia\\API_Agencia\\API_Agencia.csproj",
       "projectName": "API_Agencia",
-      "projectPath": "C:\\Users\\Omen\\source\\repos\\API_Agencia\\API_Agencia\\API_Agencia.csproj",
-      "packagesPath": "C:\\Users\\Omen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Omen\\source\\repos\\API_Agencia\\API_Agencia\\obj\\",
+      "projectPath": "D:\\Users\\Omen\\source\\repos\\API_Agencia\\API_Agencia\\API_Agencia.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\Omen\\source\\repos\\API_Agencia\\API_Agencia\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Omen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5581,7 +5581,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
