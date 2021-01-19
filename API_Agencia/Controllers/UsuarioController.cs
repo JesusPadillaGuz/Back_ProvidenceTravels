@@ -23,6 +23,7 @@ namespace API_Agencia.Controllers
         }
         // GET: api/<UsuarioController>
         //api/Usuario
+        [EnableCors("AnotherPolicy")]
         [HttpGet]
         public List<Usuario> Get()
         {
@@ -94,6 +95,7 @@ namespace API_Agencia.Controllers
         }
 
         // DELETE api/<UsuarioController>/5
+        [EnableCors("AnotherPolicy")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

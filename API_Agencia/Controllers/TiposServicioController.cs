@@ -22,6 +22,7 @@ namespace API_Agencia.Controllers
             this.context = appDbContext;
         }
         // GET: api/<TiposServicioController>
+        [EnableCors("AnotherPolicy")]
         [HttpGet]
         public IEnumerable<TipoServicio> Get()
         {
@@ -77,6 +78,7 @@ namespace API_Agencia.Controllers
         }
 
         // DELETE api/<TiposServicioController>/5
+        [EnableCors("AnotherPolicy")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

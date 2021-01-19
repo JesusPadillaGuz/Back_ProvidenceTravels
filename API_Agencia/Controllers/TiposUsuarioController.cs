@@ -23,6 +23,7 @@ namespace API_Agencia.Controllers
         }
         // GET: api/<TiposUsuarioController>
         //api/TiposUsuario
+        [EnableCors("AnotherPolicy")]
         [HttpGet]
         public IEnumerable<TipoUsuario> Get()
         {
@@ -80,6 +81,7 @@ namespace API_Agencia.Controllers
         }
 
         // DELETE api/<TiposUsuarioController>/5
+        [EnableCors("AnotherPolicy")]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
